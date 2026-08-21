@@ -432,7 +432,7 @@ int xg2010g_sync_factory_part(const char *part)
 	bool same = false;
 	int ret = 0;
 
-	if (!xg2010g_is_compatible())
+	if (!xg2010g_is_compatible() && !xg040g_is_compatible())
 		return 0;
 
 	ret = xg2010g_select_ubi(part);
