@@ -541,7 +541,7 @@ static void xg2010g_sync_runtime_ethaddrs(void)
 {
 	u8 lan_mac[ARP_HLEN], wan_mac[ARP_HLEN];
 
-	if (!xg2010g_is_compatible() && !xg040g_is_compatible())
+	if (!xg2010g_is_compatible() && !xg2010g_is_compatible())
 		return;
 
 	if (xg2010g_get_dsd_ethaddrs(lan_mac, wan_mac))
@@ -571,7 +571,7 @@ static void xg2010g_fixup_fdt_macs(void *blob)
 	u8 lan_mac[ARP_HLEN], wan_mac[ARP_HLEN];
 	int i, ret;
 
-	if (!xg2010g_is_compatible() && !xg040g_is_compatible())
+	if (!xg2010g_is_compatible() && !xg2010g_is_compatible())
 		return;
 
 	if (xg2010g_get_runtime_ethaddrs(lan_mac, wan_mac))
@@ -610,7 +610,7 @@ static int xg2010g_recovery_button_pressed(void)
 	ofnode root;
 	int ret;
 
-	if (!xg2010g_is_compatible() && !xg040g_is_compatible())
+	if (!xg2010g_is_compatible() && !xg2010g_is_compatible())
 		return 0;
 
 	memset(&rec_gpio, 0, sizeof(rec_gpio));
