@@ -16,9 +16,9 @@ jobs:
       
       - name: Install dependencies
         run: |
-          sudo -S -p '' apt-get update
-          sudo -S -p '' apt-get install -y \
-            gcc-arm-none-eabi \
+          sudo apt-get update
+          sudo apt-get install -y \
+            gcc-aarch64-linux-gnu \
             device-tree-compiler \
             bison \
             flex \
@@ -28,7 +28,7 @@ jobs:
       - name: Build U-Boot
         run: |
           make an7581_nokia-xg-040g-md_defconfig
-          make -j$(nproc)
+          make -j$(nproc) CROSS_COMPILE=aarch64-linux-gnu-
       
       - name: Check build output
         run: |
